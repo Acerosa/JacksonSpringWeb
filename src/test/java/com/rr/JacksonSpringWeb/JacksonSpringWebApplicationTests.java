@@ -26,7 +26,7 @@ class JacksonSpringWebApplicationTests {
 				.build();
 
 		String result = ojectMapper.writeValueAsString(book);
-		assertThat(result).isEqualTo("{\"isbn\":\"978-02411-894-50\",\"title\":\"Who Rules the World?\",\"author\":\"Noam Chomsky\",\"yearPublished\":\"2017\"}");
+		assertThat(result).isEqualTo("{\"isbn\":\"978-02411-894-50\",\"title\":\"Who Rules the World?\",\"author\":\"Noam Chomsky\",\"year\":\"2017\"}");
 	}
 
 	@Test
@@ -39,7 +39,7 @@ class JacksonSpringWebApplicationTests {
 				.yearPublished("2017")
 				.build();
 
-		String json = "{\"isbn\":\"978-02411-894-50\",\"title\":\"Who Rules the World?\",\"author\":\"Noam Chomsky\",\"yearPublished\":\"2017\"}";
+		String json = "{\"foo\":\"bar\",\"isbn\":\"978-02411-894-50\",\"title\":\"Who Rules the World?\",\"author\":\"Noam Chomsky\",\"year\":\"2017\"}";
 
 		ObjectMapper objectMapper = new ObjectMapper();
 		Book result = objectMapper.readValue(json, Book.class);
